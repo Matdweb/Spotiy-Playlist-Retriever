@@ -1,5 +1,7 @@
+'use client'
+
 import Image from 'next/image'
-import { useSession } from 'next-auth/react';
+import { useSession, signIn, signOut } from 'next-auth/react';
 
 export default function Home() {
   const {data: session} = useSession();
@@ -7,7 +9,7 @@ export default function Home() {
   if (session) {
     return (
       <>
-        Signed in as {session?.token?.email} <br />
+        Signed in as {session?.token?.name} <br />
         <button onClick={() => signOut()}>Sign out</button>
       </>
     );
