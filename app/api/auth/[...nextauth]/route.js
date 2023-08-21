@@ -1,28 +1,6 @@
 import NextAuth from "next-auth/next";
-import SpotifyProvider from 'next-auth/providers/spotify';
+import options from "./options";
 
-
-const handler = NextAuth({
-    providers: [
-        SpotifyProvider({
-            authorization:
-                'https://accounts.spotify.com/authorize?scope=user-read-email,playlist-read-private,playlist-modify-private,playlist-modify-public',
-            clientId: process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID,
-            clientSecret: process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_SECRET,
-        }),
-    ],
-    callbacks: {
-        async jwt({ token, account }) {
-            if (account) {
-                token.accessToken = account.refresh_token;
-            }
-            return token;
-        },
-        async session(session, user) {
-            session.user = user;
-            return session;
-        },
-    },
-});
+const handler = NextAuth(options);
 
 export { handler as GET, handler as POST };
