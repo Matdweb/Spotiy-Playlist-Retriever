@@ -1,15 +1,15 @@
 'use client'
 
-import {useSession, signIn, signOut} from 'next-auth/react';
-import {useState} from 'react';
+import { useSession, signIn, signOut } from 'next-auth/react';
+import { useState } from 'react';
 
 export default function Home() {
-  const {data: session} = useSession();
+  const { data: session } = useSession();
   const [list, setList] = useState([]);
 
   const getMyPlaylists = async () => {
     const res = await fetch('/api/spotify');
-  const {items} = await res.json();
+    const { items } = await res.json();
     setList(items);
     console.log(res)
   };
