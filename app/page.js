@@ -19,9 +19,13 @@ export default function Home() {
       })
     })
 
-    const { playlists } = await response.json();
-    console.log(playlists);
-    setList(playlists)
+    try {
+      const { playlists } = await response.json();
+      console.log(playlists);
+      setList(playlists)
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   const createNewPlaylist = async () => {
@@ -45,7 +49,7 @@ export default function Home() {
     return (
       <>
         Signed in as {session?.token?.email} <br />
-        <button onClick={() =>  signOut()}>Sign out</button>
+        <button onClick={() => signOut()}>Sign out</button>
         <hr />
         <button onClick={() => getMyPlaylists()}>Get all my playlists</button><br/>
         <button onClick={() => createNewPlaylist()}>Create new playlists</button>
