@@ -30,7 +30,7 @@ export default function Home() {
 
   const createNewPlaylist = async () => {
     const refresh_token = session.token.accessToken;
-    
+
     const response = await fetch('api/spotify/createNewPlaylist', {
       method: 'POST',
       headers: {
@@ -41,8 +41,12 @@ export default function Home() {
       })
     })
 
-    const data = await response.json();
-    console.log(data);
+    try {
+      const data = await response.json();
+      console.log(data);
+    } catch (e) {
+      console.log(e);
+    }
   }
 
   if (session) {
@@ -51,7 +55,7 @@ export default function Home() {
         Signed in as {session?.token?.email} <br />
         <button onClick={() => signOut()}>Sign out</button>
         <hr />
-        <button onClick={() => getMyPlaylists()}>Get all my playlists</button><br/>
+        <button onClick={() => getMyPlaylists()}>Get all my playlists</button><br />
         <button onClick={() => createNewPlaylist()}>Create new playlists</button>
         {list.map((item) => (
           <div key={item.id}>
