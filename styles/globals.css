@@ -39,12 +39,10 @@ a {
 
 p {
   margin: 0;
-}
-
-p.txt-normal {
   color: #FFF;
   font-weight: 400;
 }
+
 
 h1.primary-title {
   width: 100%;

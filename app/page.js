@@ -2,6 +2,7 @@
 import { useSession, signIn, signOut } from 'next-auth/react';
 import { useState } from 'react';
 import NotSignedIn from './components/NotSignedIn';
+import SignedIn from './components/SignedIn';
 
 export default function Home() {
   const { data: session } = useSession();
@@ -52,19 +53,18 @@ export default function Home() {
 
   if (session) {
     return (
-      <>
-        Signed in as {session?.token?.email} <br />
-        <button onClick={() => signOut()}>Sign out</button>
-        <hr />
-        <button onClick={() => getMyPlaylists()}>Get all my playlists</button><br />
-        <button onClick={() => createNewPlaylist()}>Create new playlists</button>
+      <div className='mb-40'>
+        <SignedIn />
+        <button className='btn-primary' onClick={() => getMyPlaylists()}>Get all my playlists</button>
+        <button className='btn-primary' onClick={() => createNewPlaylist()}>Create new playlists</button>
+        <span className='gray-txt' onClick={() => toggleCleanPage()}>Clean Page</span>
         {list.map((item) => (
           <div key={item.id}>
             <h1>{item.name}</h1>
             <img src={item.images[0]?.url} width="100" />
           </div>
         ))}
-      </>
+      </div>
     );
   }
   return (
