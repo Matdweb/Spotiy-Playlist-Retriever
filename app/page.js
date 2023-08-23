@@ -1,5 +1,4 @@
 'use client'
-
 import { useSession, signIn, signOut } from 'next-auth/react';
 import { useState } from 'react';
 
@@ -8,10 +7,25 @@ export default function Home() {
   const [list, setList] = useState([]);
 
   const getMyPlaylists = async () => {
-    const res = await fetch('/api/spotify');
-    const { items } = await res.json();
-    setList(items);
-    console.log(res)
+    const refresh_token = session.token.accessToken;
+
+    const response = await fetch('api/spotify/getUserPlaylists', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        refresh_token,
+      })
+    })
+
+    try {
+      const { playlists } = await response.json();
+      console.log(playlists);
+      setList(playlists)
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   if (session) {
@@ -37,3 +51,4 @@ export default function Home() {
     </>
   );
 }
+
