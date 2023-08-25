@@ -1,6 +1,11 @@
 # Spotify Playlist Retriever
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) that retrives the playList or playLists of an authenticated user with the Spotify API
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) that retrieves the playList or playLists of an authenticated user with the Spotify API
+
+This is an experimental code. The purpose of this project is to test functionality for the development of a greater application
+See here the main application: [Jamming](#);
+
+Here you can take a look at the Figma prototype [Figma](https://www.figma.com/file/vC75e7Rda1IiLSC6SmKztR/Spotify-Playlists-Retriever-next_v12?type=design&node-id=0%3A1&mode=design&t=dveafw1P5ssLiuSS-1)
 
 ## Getting Started
 
@@ -19,6 +24,12 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+
+## More about this application's APIs management
+
+This app works with [`Next Auth`](https://next-auth.js.org/) for user authentication
+The app also has 2 API endpoints: [`getUserPlaylists`](https://github.com/Matdweb/Spotiy-Playlist-Retriever/pull/4) & [`createNewPlaylist`](https://github.com/Matdweb/Spotiy-Playlist-Retriever/pull/8) please check them out to understand the logic of this program. 
+Those links provide a very complete explanation!
 
 ## Learn More
 
