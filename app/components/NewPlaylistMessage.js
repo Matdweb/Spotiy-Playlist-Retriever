@@ -1,5 +1,13 @@
+'use client'
+import { useState } from "react";
+import Modal from "./Modal";
 
 function NewPlaylistMessage({ content }) {
+    const [modal,setModal] = useState(false);
+
+    const toggleModal = () => {
+        setModal(!modal);
+    }
 
     return (
         <div>
@@ -12,7 +20,9 @@ function NewPlaylistMessage({ content }) {
                     <p>{content.new_playlist?.description}</p>
                 </div>
             </div>
-            <span className='gray-txt'>See Songs</span>
+            <span onClick={()=> toggleModal()} className='gray-txt'>See Songs</span>
+
+            { modal ? <Modal toggleModal={toggleModal} /> : '' }
 
         </div>
     )
