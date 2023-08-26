@@ -52,6 +52,10 @@ export default function Home() {
     }
   }
 
+  const toggleCleanPage = () => {
+    setList([]);
+  }
+
   if (session) {
     return (
       <div className='mb-40'>
