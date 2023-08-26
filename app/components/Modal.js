@@ -24,7 +24,7 @@ function Modal({ toggleModal }) {
                         return (
                             <p key={element.id}>
                                 {element.artist} <span className='opacity-60'>{element.song}</span>
-                                { i !== defaultSongs.length-1 ? ' • ' : '' }
+                                { i !== defaultSongs.length-1 ? <span className='mx-1.5'>•</span> : '' }
                             </p>
                         )
                     })}
