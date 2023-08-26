@@ -4,10 +4,13 @@ import { useState } from 'react';
 import NotSignedIn from './components/NotSignedIn';
 import SignedIn from './components/SignedIn';
 import Playlist from './components/Playlist';
+import NewPlaylistMessage from './components/NewPlaylistMessage';
 
 export default function Home() {
   const { data: session } = useSession();
   const [list, setList] = useState([]);
+  const [newPlaylist,setNewPlaylist] = useState({});
+  const [newPlaylistCreated, setNewPlaylistCreated] = useState(false);
 
   const getMyPlaylists = async () => {
     const refresh_token = session.token.accessToken;
@@ -47,6 +50,8 @@ export default function Home() {
     try {
       const data = await response.json();
       console.log(data);
+      setNewPlaylistCreated(true);
+      setNewPlaylist(data);
     } catch (e) {
       console.log(e);
     }
@@ -54,6 +59,7 @@ export default function Home() {
 
   const toggleCleanPage = () => {
     setList([]);
+    setNewPlaylistCreated(false);
   }
 
   if (session) {
@@ -63,6 +69,9 @@ export default function Home() {
         <button className='btn-primary' onClick={() => getMyPlaylists()}>Get all my playlists</button>
         <button className='btn-primary' onClick={() => createNewPlaylist()}>Create new playlists</button>
         <span className='gray-txt' onClick={() => toggleCleanPage()}>Clean Page</span>
+
+        {newPlaylistCreated ? <NewPlaylistMessage content={newPlaylist} /> : ''}
+
         {list.map((item) => (
           <Playlist key={item.id} content={item} />
         ))}
