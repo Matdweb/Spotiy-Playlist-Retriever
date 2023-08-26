@@ -3,6 +3,7 @@ import { useSession, signIn, signOut } from 'next-auth/react';
 import { useState } from 'react';
 import NotSignedIn from './components/NotSignedIn';
 import SignedIn from './components/SignedIn';
+import Playlist from './components/Playlist';
 
 export default function Home() {
   const { data: session } = useSession();
@@ -59,10 +60,7 @@ export default function Home() {
         <button className='btn-primary' onClick={() => createNewPlaylist()}>Create new playlists</button>
         <span className='gray-txt' onClick={() => toggleCleanPage()}>Clean Page</span>
         {list.map((item) => (
-          <div key={item.id}>
-            <h1>{item.name}</h1>
-            <img src={item.images[0]?.url} width="100" />
-          </div>
+          <Playlist key={item.id} content={item} />
         ))}
       </div>
     );
