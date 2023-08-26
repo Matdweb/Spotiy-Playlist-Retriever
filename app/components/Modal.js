@@ -7,8 +7,8 @@ function Modal({ toggleModal }) {
         song: "Photograph"
     }, {
         id: 1,
-        artist: "Taylor Swift",
-        song: "Bad Blood"
+        artist: "X siempre",
+        song: "Un corazon"
     }];
 
     return (
