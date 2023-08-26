@@ -18,12 +18,9 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
+  background: linear-gradient(to bottom,
       transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
 }
 
 a {
@@ -49,7 +46,8 @@ h1.primary-title {
   color: #FFF;
   font-size: 3.7rem;
   font-weight: 900;
-  margin: 2.5rem 0 2.5rem 0;
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
 }
 
 .bold-txt {
@@ -92,7 +90,7 @@ label {
   font-weight: 300;
 }
 
-.shadow-primary:hover{
+.shadow-primary:hover {
   box-shadow: 0px 0px 8px 0px #333 inset;
 }
 
@@ -100,12 +98,17 @@ label {
   h1.primary-title {
     font-size: 2rem;
   }
-  .btn-primary{
+
+  .btn-primary {
     font-size: 1.5rem;
   }
-  label, p, span{
+
+  label,
+  p,
+  span {
     font-size: 1rem;
   }
+
   .gray-txt {
     font-size: 1rem;
   }
