@@ -4,7 +4,7 @@ import defualtImg from '@/public/assets/img/defaultPlaylistImg.png'
 function Playlist({ content }) {
     return (
         <div className='ml-10 text-xl sm:text-3xl'>
-            <h1 className='primary-title my-10'>{content.name}</h1>
+            <h1 className='primary-title'>{content.name}</h1>
             <div className='w-full flex flex-row flex-nowrap justify-start items-end'>
                 <Image
                     className='mr-4 sm:mr-8 w-32 h-32 sm:w-60 sm:h-60'
