@@ -1,10 +1,11 @@
 import { Inter } from 'next/font/google'
 import AuthProvider from './components/AuthProvider'
+import TokenContextProvieder from '@/context/TokenContextProvieder'
 import '@/styles/globals.css'
 
-const inter = Inter({ 
+const inter = Inter({
   subsets: ['latin'],
-  weight: ['300','400','700','900']
+  weight: ['300', '400', '700', '900']
 })
 
 export const metadata = {
@@ -15,11 +16,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <AuthProvider>
-          {children}
-        </AuthProvider>
-      </body>
+      <TokenContextProvieder>
+        <body className={inter.className}>
+          <AuthProvider>
+            {children}
+          </AuthProvider>
+        </body>
+      </TokenContextProvieder>
     </html>
   )
 }

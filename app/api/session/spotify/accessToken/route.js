@@ -1,6 +1,9 @@
-import { SpotifyCredentials } from "./spotifySearchCredentials";
+import { SpotifyCredentials } from "@/lib/spotify/spotifySearchCredentials";
+import { NextResponse } from "next/server";
 
-export const getAccessToken = async (refresh_token) => {
+export async function POST(request) {
+    const { refresh_token } = await request.json();
+
     const response = await fetch(SpotifyCredentials.TOKEN_ENDPOINT, {
         method: 'POST',
         headers: {
@@ -15,6 +18,6 @@ export const getAccessToken = async (refresh_token) => {
         }),
     });
 
-    const { access_token } = await response.json()
-    return access_token;
+    const {access_token, expires_in} = await response.json()
+    return NextResponse.json({access_token, expires_in})
 }
