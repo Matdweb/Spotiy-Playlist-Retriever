@@ -17,7 +17,6 @@ export default function Home() {
   const { accessToken, setAccessToken } = useContext(tokenContext);
 
   const getAccessToken = async () => {
-    console.log(accessToken);
     if (accessToken) {
       console.log('Theres already a token');
       return accessToken;
@@ -36,7 +35,6 @@ export default function Home() {
 
     try {
       const data = await response.json();
-      console.log(data);
       handleAccessTokenExpiration(data.expires_in);
       setAccessToken(data.access_token);
       return data.access_token;
@@ -81,7 +79,7 @@ export default function Home() {
     const response = await fetch('api/spotify/createNewPlaylist', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/npm rjson',
       },
       body: JSON.stringify({
         access_token,
