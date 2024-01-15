@@ -3,7 +3,7 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) that retrieves the playList or playLists of an authenticated user with the Spotify API. Not only that, but this app is able to create new platlists with default values.
 
 This is an experimental code. The purpose of this project is to test functionality for the development of a greater application.
-See here the main application: [Jamming](#);
+See here the main application: [Jamming](https://github.com/Matdweb/Jamming);
 
 Here you can take a look at the Figma prototype [Figma](https://www.figma.com/file/vC75e7Rda1IiLSC6SmKztR/Spotify-Playlists-Retriever-next_v12?type=design&node-id=0%3A1&mode=design&t=dveafw1P5ssLiuSS-1)
 
